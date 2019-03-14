@@ -1,4 +1,5 @@
 from django.db import models
+import django.utils.timezone as timezone
 
 
 # Create your models here.
@@ -17,7 +18,7 @@ class Story(models.Model):
     category = models.CharField(max_length=16)
     region = models.CharField(max_length=16)
     detail = models.CharField(max_length=512)
-    pub_date = models.DateTimeField('date published')
+    pub_date = models.DateTimeField('date published',default = timezone.now)
 
     def __str__(self):
         return self.headline
